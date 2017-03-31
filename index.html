@@ -3,82 +3,86 @@
 <html>
 
 <head>
-    <title>Choose a Side</title>
-    <style>
-        html {
-            min-height: 100%;
-            position: relative;
-        }
+  <title>Choose a Side</title>
+  <style>
+  html {
+    min-height: 100%;
+    position: relative;
+  }
 
-        body {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            border: 0;
-            text-align: center;
-            font-family: "Unity", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-            font-size: 50pt;
-        }
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-align: center;
+    font-family: "Unity", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+    font-size: 50pt;
+  }
 
-        .side {
-            width: 50%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            overflow: hidden;
-            cursor: pointer;
-        }
+  .side {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    cursor: pointer;
+  }
 
-        #light_side {
-            left: 0;
-            background-color: #0257B8;
-        }
+  .element:hover {
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+  }
 
-        #dark_side {
-            right: 0;
-            background-color: #BC0200;
-        }
+  #light_side {
+    left: 0;
+    background-color: #0257B8;
+  }
 
-        .name {
-            color: white;
-        }
-    </style>
+  #dark_side {
+    right: 0;
+    background-color: #BC0200;
+  }
+
+  .name {
+    color: white;
+  }
+  </style>
   <!--   <link rel="stylesheet" href="lightsaber.css" />
-   <link rel="shortcut icon" href="resources/brownie.png"> link to external stylesheets-->
+  <link rel="shortcut icon" href="resources/brownie.png"> link to external stylesheets-->
 </head>
 
 <body>
-    <a href="#">
-        <div id="light_side" class="side">
-            <span class="name">Obi-Wan Pozharski</span><br/>
-            <!-- <img id="light_terp"src="/resources/umd.png" height="70px" hidden="hidden"/> hidden image-->
-        </div>
-    </a>
-    <a href="#">
-        <div id="dark_side" class="side">
-            <span class="name">Darth Justin</span><br/>
-            <!-- <img id="dark_terp"src="/resources/cornell.svg" height="70px" hidden="hidden"/> hidden image-->
-        </div>
-    </a>
+  <a href="#">
+    <div id="light_side" class="side">
+      <span class="name">Popular Choices</span><br/>
+      <!-- <img id="light_terp"src="/resources/umd.png" height="70px" hidden="hidden"/> hidden image-->
+    </div>
+  </a>
+  <a href="#">
+    <div id="dark_side" class="side">
+      <span class="name">Custom Search</span><br/>
+      <!-- <img id="dark_terp"src="/resources/cornell.svg" height="70px" hidden="hidden"/> hidden image-->
+    </div>
+  </a>
 
-    <div id="lightsaber">
-        <span id="light" class="bluelight"></span>
-        <span id="generator">
-				<span id="guard">
-					<span></span>
+  <div id="lightsaber">
+    <span id="light" class="bluelight"></span>
+    <span id="generator">
+      <span id="guard">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
-        </span>
-        <span id="handlestart">
-					<span></span>
         <span></span>
-        </span>
-        <span id="handle">
-					<span></span>
+      </span>
+      <span id="handlestart">
+        <span></span>
+        <span></span>
+      </span>
+      <span id="handle">
+        <span></span>
         <span></span>
         <span></span><span></span>
         <span></span><span></span>
@@ -91,39 +95,39 @@
         <span class="long"></span>
         <span class="long"></span>
         <span class="box"></span>
-        </span>
-        <span class="wings">
-					<span class="wing wing1"></span>
+      </span>
+      <span class="wings">
+        <span class="wing wing1"></span>
         <span class="wing wing2"></span>
         <span class="wing wing3"></span>
-        </span>
+      </span>
 
-        <span class="light"></span>
-        </span>
-    </div>
-    <script>
-        function resize() {
-            var names = document.getElementsByClassName("name"),
-                h = document.getElementsByClassName("side")[0].clientHeight;
-            names[0].style.lineHeight = h / 75.0;
-            names[1].style.lineHeight = h / 75.0;
-        }
-        window.addEventListener("load", resize, false);
-        window.addEventListener("resize", resize, false);
+      <span class="light"></span>
+    </span>
+  </div>
+  <script>
+  function resize() {
+    var names = document.getElementsByClassName("name"),
+    h = document.getElementsByClassName("side")[0].clientHeight;
+    names[0].style.lineHeight = h / 75.0;
+    names[1].style.lineHeight = h / 75.0;
+  }
+  window.addEventListener("load", resize, false);
+  window.addEventListener("resize", resize, false);
 
-        function hoverBlue() {
-          document.getElementById("light").className = "bluelight";
-          document.getElementById("light_terp").removeAttribute("hidden");
-          document.getElementById("dark_terp").setAttribute("hidden", "hidden");
-        }
-        function hoverRed() {
-          document.getElementById("light").className = "redlight";
-          document.getElementById("light_terp").setAttribute("hidden", "hidden");
-          document.getElementById("dark_terp").removeAttribute("hidden");
-        }
-        document.getElementById("light_side").addEventListener("mouseenter", hoverBlue, false);
-        document.getElementById("dark_side").addEventListener("mouseenter", hoverRed, false);
-    </script>
+  function hoverBlue() {
+    document.getElementById("light").className = "bluelight";
+    document.getElementById("light_terp").removeAttribute("hidden");
+    document.getElementById("dark_terp").setAttribute("hidden", "hidden");
+  }
+  function hoverRed() {
+    document.getElementById("light").className = "redlight";
+    document.getElementById("light_terp").setAttribute("hidden", "hidden");
+    document.getElementById("dark_terp").removeAttribute("hidden");
+  }
+  document.getElementById("light_side").addEventListener("mouseenter", hoverBlue, false);
+  document.getElementById("dark_side").addEventListener("mouseenter", hoverRed, false);
+  </script>
 </body>
 
 </html>
