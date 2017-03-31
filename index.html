@@ -3,69 +3,21 @@
 <html>
 <head>
   <title>Find me a place to eat</title>
+  <link rel="stylesheet" type="text/css" href="indexStyle.css" />
 
-  <style>
-
-  body {
-    background-color: lightblue;
-  }
-  /*The Modal (background) */
-  .modal {
-    display: none; /* Hidden by default */
-
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,.6); /* Black w/ opacity */
-  }
-
-  /* Modal Content */
-  .modal-content {
-    text-align: center;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-  }
-
-  /* The Close Button */
-  .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 25px;
-    font-weight: bold;
-  }
-
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  .buttons {
-    text-align: center;
-  }
-  </style>
 
 </head>
 <body>
 
   <h1 align = "center">
-    Having trouble finding the best place to eat?
+    Are you having trouble finding the best place to eat?
   </h1>
 
   <div class="buttons">
-    <button onclick="location.href='choose.html'" type="button" id="firstBtn">
-    Yes! Help me pick!</button>
-    <button id="secondBtn">No, I don't know why I'm on this website</button>
-  </div>
+    <button class = "arrowBtn" onclick="location.href='choose.html'" type="button" id="firstBtn"><span>
+      Yes! Help me pick!</span></button>
+      <button class = "pressBtn" id="secondBtn">No, I don't know why I'm on this website.</button>
+    </div>
 
     <div id="leaveModal" class="modal">
 
