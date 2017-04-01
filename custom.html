@@ -2,19 +2,95 @@
 <html>
 <head>
   <title>Search for restaurants</title>
-  <style>
-  .buttons {
-    text-align: center;
-  }
-  </style>
+  <link rel="stylesheet" type="text/css" href="customStyle.css"/>
 </head>
 <body>
-<h4 align = "center">
-  this is custom search page
-</h4>
-<div class="buttons">
-  <button onclick="location.href='results.html'" type="button">
-   Get results</button>
- </div>
+
+  <button class = "backBtn" onclick="location.href='choose.html'" type="button" id="back"><span>
+  Back</span></button>
+  <h2 class="top">
+    Find Your Restaurant
+  </h2>
+<section class=fixedImage>
+  <div class = "inner" >
+
+    <div id="question1" class=remove>
+      <div class="content">
+        <h1>What type of restaurant are you looking for?<h1>
+      </div>
+
+      <div align="center">
+  				<input class=""  type="text"/>
+      </div>
+    </div>
+    <div id="question2" class=remove>
+      <div class="content">
+        <h1>Search radius from your current position or selected position?<h1>
+      </div>
+
+      <div align="center">
+  				<input class=""  type="text"/>
+      </div>
+    </div>
+
+    <div id="question3" class=remove>
+      <div class="content">
+        <h1>Minimum yelp rating of the restaurant?<h1>
+      </div>
+
+      <div align="center">
+  				<input class=""  type="text"/>
+      </div>
+    </div>
+
+    <div id="question4" class=remove>
+      <div class="content">
+        <h1>How much are you willing to spend?<h1>
+      </div>
+
+      <div align="center">
+  				<input class=""  type="text"/>
+      </div>
+    </div>
+
+    <div id="question5" class=remove>
+      <div class="content">
+        <h1>When would you like the restaurant to be open?<h1>
+      </div>
+
+      <div align="center">
+  				<input class=""  type="text"/>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button class="results" onclick="location.href='results.html'" type="button">
+       Get results</button>
+    </div>
+
+  </div>
+</section>
+
+
+<script>
+$(document).ready(function() {
+  $(window).scroll(function(){;
+    w = Math.floor( $(window).scrollTop() );
+   $('.fade').css( 'opacity', '' );
+    if(w<=$('#question1').offset().top){
+         $('#question1').css( 'opacity', '.5' );
+    }else if(w<=$('#question2').offset().top){
+         $('#question2').css( 'opacity', '.5' );
+    }else if(w<=$('#question3').offset().top){
+         $('#question3').css( 'opacity', '.5' );
+    }else if(w<=$('#question4').offset().top){
+         $('#question4').css( 'opacity', '.5' );
+    }else{
+         $('#question5').css( 'opacity', '.5' );
+    }
+
+});
+});
+</script>
 </body>
 </html>

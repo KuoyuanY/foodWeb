@@ -7,7 +7,16 @@ h1 {
   font-family: Avenir Light;
 }
 body {
-  background-color: lightblue;
+  background: url("indexBackground.jpg");
+  margin: auto;
+  display: table;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .arrowBtn{
   border-radius: 15px;
@@ -52,11 +61,11 @@ body {
   cursor: pointer;
   outline: none;
   color: #fff;
-  background-color: #4CAF50;
+  background-color: #0099ff;
   border: none;
   border-radius: 15px;
 }
-.pressBtn:hover {background-color: #3e8e41}
+.pressBtn:hover {background-color: #006bb3}
 
 
 /*The Modal (background) */
