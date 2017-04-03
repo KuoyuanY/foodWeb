@@ -44,6 +44,9 @@ p {
   border: none;
   border-radius: 15px;
 }
+.input{
+  width:30%;
+}
 .fixedImage {
   background: url("customBackground.png");
   margin: auto;
