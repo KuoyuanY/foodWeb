@@ -36,7 +36,7 @@
 
 
   $("#next4").click(function(event){
-    $.get( "/", to_pass, function(data) {
+    $.get( "/request", to_pass, function(data) {
       $( "#first" ).html( data )
       alert( "Load was performed." )
     })

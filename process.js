@@ -8,7 +8,7 @@ const clientSecret = 'qSyPQy9tnAyUowLc61ydFX7HvZ7FJAmHfOUfT4AmLZYhuqR1C16iMiL1qP
 // from https://www.yelp.com/developers/v3/manage_app
 
 app.use(bodyParser.json())
-app.get('/', function (req, res) {
+app.get('/request', function (req, res) {
   var sendBack
   yelp.accessToken(clientId, clientSecret).then(response => {
     const client = yelp.client(response.jsonBody.access_token)
