@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <title>Restaurants</title>
+  </head>
+  <button type="button" id="get">Show Results!</button>
+  <div>
+  <p id="first"></p>
+  <p id="second"></p>
+  <p id="third"></p>
+  <p id="fourth"></p>
+  <p id="fifth"></p>
+  <p id="sixth"></p>
+  <p id="seventh"></p>
+  <p id="eighth"></p>
+  <p id="nineth"></p>
+  <p id="tenth"></p>
+  </div>
+  <script>
+  var to_pass = new Object()
+  to_pass.limit = 10
+
+
+  if(localStorage.getItem("has_categories")==='true'){
+    to_pass.categories=localStorage.getItem("categories")
+  }
+  if(localStorage.getItem("has_location")==='true'){
+    to_pass.location=localStorage.getItem("location")
+  } else{
+    to_pass.latitude=localStorage.getItem("latitude")
+    to_pass.longtitude=localStorage.getItem("longitude")
+  }
+  to_pass.price=localStorage.getItem("price")
+  to_pass.radius=localStorage.getItem("radius")
+
+
+  $("#next4").click(function(event){
+    $.get( "/", to_pass, function(data) {
+      $( "#first" ).html( data )
+      alert( "Load was performed." )
+    })
+  });
+  </script>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "food-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "process.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/y9y9l5m6/foodWeb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/y9y9l5m6/foodWeb/issues"
+  },
+  "homepage": "https://github.com/y9y9l5m6/foodWeb#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
