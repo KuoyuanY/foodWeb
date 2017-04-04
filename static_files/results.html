@@ -25,7 +25,7 @@
   }
   </style>
   </head>
-  <h2>
+  <h2 id="head">
     Please be patient while we search for the restaurant... :)
   </h2>
 
@@ -53,18 +53,18 @@
   if(localStorage.getItem("has_categories")==='true'){
     to_pass.categories=localStorage.getItem("categories")
   }
-  if(localStorage.getItem("has_location")==='true'){
-    to_pass.location=localStorage.getItem("location")
-  } else{
-    to_pass.latitude=localStorage.getItem("latitude")
-    to_pass.longtitude=localStorage.getItem("longitude")
-  }
-
+  // if(localStorage.getItem("has_location")==='true'){
+  //   to_pass.location=localStorage.getItem("location")
+  // } else{
+  //   to_pass.latitude=localStorage.getItem("latitude")
+  //   to_pass.longtitude=localStorage.getItem("longitude")
+  // }
+  to_pass.location=localStorage.getItem("location")
 
 
   $("#button").click(function(event){
     $.get( "https://guarded-fortress-21120.herokuapp.com/request", to_pass, function(data) {
-      $( "#first" ).append( data )
+      $( "#first" ).text( data )
       alert( "Load was performed." )
     })
   });
