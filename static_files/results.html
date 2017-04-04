@@ -35,7 +35,7 @@
   to_pass.radius=localStorage.getItem("radius")
 
 
-  $("#next4").click(function(event){
+  $("#button").click(function(event){
     $.get( "https://guarded-fortress-21120.herokuapp.com/request", to_pass, function(data) {
       $( "#first" ).append( data )
       alert( "Load was performed." )
