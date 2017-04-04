@@ -134,6 +134,7 @@ $(document).ready(function() {
         navigator.geolocation.getCurrentPosition(function(position) {
           localStorage.setItem("latitude", position.coords.latitude)
           localStorage.setItem("longitude", position.coords.longitude)
+          alert(localStorage.getItem("latitude")+" and "+localStorage.getItem("longitude"))
         });
       }
     }
