@@ -63,9 +63,8 @@
 
 
   $("#button").click(function(event){
-    $.get( "https://guarded-fortress-21120.herokuapp.com/request", to_pass, function(data) {
+    $.post( "https://guarded-fortress-21120.herokuapp.com/request", to_pass, function(data) {
       $( "#first" ).text( data )
-      alert( "Load was performed." )
     })
   });
   </script>
