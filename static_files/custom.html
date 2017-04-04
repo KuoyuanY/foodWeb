@@ -135,6 +135,8 @@ $(document).ready(function() {
         navigator.geolocation.getCurrentPosition(function(position) {
           localStorage.setItem("latitude", position.coords.latitude)
           localStorage.setItem("longitude", position.coords.longitude)
+        },function() {
+          alert("Unable to retrieve your location, Please enter your location manually")
         });
       }
     }

@@ -54,11 +54,8 @@
     to_pass.categories=localStorage.getItem("categories")
   }
   if(localStorage.getItem("has_location")==='true'){
-    alert("location:"+localStorage.getItem("location"))
     to_pass.location=localStorage.getItem("location")
   } else{
-    alert(localStorage.getItem("latitude")+" and "+localStorage.getItem("longitude"))
-    alert(to_pass.price)
     to_pass.latitude=localStorage.getItem("latitude")
     to_pass.longtitude=localStorage.getItem("longitude")
   }
