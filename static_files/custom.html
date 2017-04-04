@@ -130,12 +130,11 @@ $(document).ready(function() {
       localStorage.setItem("location", $('#location').val())
       localStorage.setItem("has_location", 'true')
     }else {
-      alert(localStorage.getItem("latitude")+" and "+localStorage.getItem("longitude"))
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
           localStorage.setItem("latitude", position.coords.latitude)
           localStorage.setItem("longitude", position.coords.longitude)
-
+          alert(localStorage.getItem("latitude")+" and "+localStorage.getItem("longitude"))
         });
       }
     }
