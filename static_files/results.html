@@ -36,7 +36,7 @@
 
 
   $("#next4").click(function(event){
-    $.get( "/request", to_pass, function(data) {
+    $.get( "https://guarded-fortress-21120.herokuapp.com/request", to_pass, function(data) {
       $( "#first" ).html( data )
       alert( "Load was performed." )
     })
