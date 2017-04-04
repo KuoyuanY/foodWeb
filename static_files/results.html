@@ -3,12 +3,35 @@
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <title>Restaurants</title>
+  <style>
+  h2{
+    text-align: center;
+    color: #f4511e;
+  }
+  .pressBtn{
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #0099ff;
+    border: none;
+    border-radius: 15px;
+  }
+  .pressBtn:hover {background-color: #006bb3}
+  .buttons{
+    text-align: center;
+  }
+  </style>
   </head>
   <h2>
     Please be patient while we search for the restaurant... :)
   </h2>
 
-  <button align="center" type="button" id="get">Show Results!</button>
+  <div class="buttons">
+    <button class="pressBtn" type="button" id="get">Show Results!</button>
+  </div>
   <div>
   <p id="first"></p>
   <p id="second"></p>
