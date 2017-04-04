@@ -24,7 +24,7 @@
         </div>
 
         <div align="center">
-    			  <input class="input" type="text" id="categories"><br>
+    			  <input class="input" type="text" id="term"><br>
         </div>
 
         <div align="center">
@@ -119,10 +119,10 @@ $(document).ready(function() {
   });
   if (typeof(Storage) !== "undefined") {//browser doesn't support web storage
   $("#next1").click(function(event){
-    if ($('#categories').val()===''){
-    localStorage.setItem("has_categories", 'true') //stores data for yelp search api
+    if ($('#term').val()===''){
+    localStorage.setItem("term", 'restaurant')
   } else{
-    localStorage.setItem("categories", $('#categories').val())
+    localStorage.setItem("term", $('#term').val() + " restaurant")
   }
   })
   $("#next2").click(function(event){
@@ -161,7 +161,7 @@ $(document).ready(function() {
   })
   $("#results").click(function(event){
     if($('#price').val()===''){
-    localStorage.setItem("price", "$$") //stores data for yelp search api
+    localStorage.setItem("price", "2") //stores data for yelp search api
 
   } else{
     if($('#price').val() > 1){
@@ -175,13 +175,13 @@ $(document).ready(function() {
 
         var price_string = ''
         switch (input.length) {
-          case 1: price_string = '$'
+          case 1: price_string = '1'
             break;
-          case 2: price_string = '$$'
+          case 2: price_string = '2'
             break;
-          case 3: price_string = '$$$'
+          case 3: price_string = '3'
             break;
-          default: price_string = '$$$$'
+          default: price_string = '4'
       }
       localStorage.setItem("price", price_string) //stores data for yelp search api
       }
@@ -197,7 +197,7 @@ $(document).ready(function() {
         location.href = "results.html";
     };
     $("#next1").click(function(event){//scroll down
-      $("html, body").animate({ scrollTop: $('#categories').offset().top }, 1000)
+      $("html, body").animate({ scrollTop: $('#term').offset().top }, 1000)
     });
     $("#next2").click(function(event){//scroll down
       $("html, body").animate({ scrollTop: $('#location').offset().top }, 1000)

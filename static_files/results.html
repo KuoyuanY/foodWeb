@@ -26,23 +26,15 @@
   </style>
   </head>
   <h2 id="head">
-    Please be patient while we search for the restaurant... :)
+    Find Restaurant!
   </h2>
 
   <div class="buttons">
     <button class="pressBtn" type="button" id="get">Show Results!</button>
   </div>
   <div>
-  <p id="first"></p>
-  <p id="second"></p>
-  <p id="third"></p>
-  <p id="fourth"></p>
-  <p id="fifth"></p>
-  <p id="sixth"></p>
-  <p id="seventh"></p>
-  <p id="eighth"></p>
-  <p id="nineth"></p>
-  <p id="tenth"></p>
+  <p id="first">a</p>
+
   </div>
   <script>
   var to_pass = new Object()
@@ -50,22 +42,29 @@
 
   to_pass.price=localStorage.getItem("price")
   to_pass.radius=localStorage.getItem("radius")
-  if(localStorage.getItem("has_categories")==='true'){
-    to_pass.categories=localStorage.getItem("categories")
+
+  to_pass.term=localStorage.getItem("term")
+
+  if(localStorage.getItem("has_location")==='true'){
+    to_pass.location=localStorage.getItem("location")
+  } else{
+    to_pass.latitude=localStorage.getItem("latitude")
+    to_pass.longtitude=localStorage.getItem("longitude")
   }
-  // if(localStorage.getItem("has_location")==='true'){
-  //   to_pass.location=localStorage.getItem("location")
-  // } else{
-  //   to_pass.latitude=localStorage.getItem("latitude")
-  //   to_pass.longtitude=localStorage.getItem("longitude")
-  // }
   to_pass.location=localStorage.getItem("location")
 
 
   $("#get").click(function(event){
-    $.post( "https://guarded-fortress-21120.herokuapp.com/request", to_pass, function(data) {
-      $( "#first" ).text( data )
+    $.get( "https://guarded-fortress-21120.herokuapp.com/request", to_pass, function(data) {
+      console.log(data.total===1)
+      if(data.total===0){
+        $("#first").text("No results found")
+      } else {
+        $("#first").text("Name: "+data.businesses[0].name + "\nPhone: " + data.businesses[0].phone + "\nwebsite: "+ data.businesses[0].url)
+      }
+
+      })
     })
-  });
+
   </script>
 </html>
