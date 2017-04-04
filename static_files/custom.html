@@ -131,6 +131,7 @@ $(document).ready(function() {
       localStorage.setItem("has_location", 'true')
     }else {
       if (navigator.geolocation) {
+        localStorage.setItem("has_location", 'false')
         navigator.geolocation.getCurrentPosition(function(position) {
           localStorage.setItem("latitude", position.coords.latitude)
           localStorage.setItem("longitude", position.coords.longitude)

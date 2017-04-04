@@ -48,18 +48,21 @@
   var to_pass = new Object()
   to_pass.limit = 3
 
-
+  to_pass.price=localStorage.getItem("price")
+  to_pass.radius=localStorage.getItem("radius")
   if(localStorage.getItem("has_categories")==='true'){
     to_pass.categories=localStorage.getItem("categories")
   }
   if(localStorage.getItem("has_location")==='true'){
+    alert("location:"+localStorage.getItem("location"))
     to_pass.location=localStorage.getItem("location")
   } else{
+    alert(localStorage.getItem("latitude")+" and "+localStorage.getItem("longitude"))
+    alert(to_pass.price)
     to_pass.latitude=localStorage.getItem("latitude")
     to_pass.longtitude=localStorage.getItem("longitude")
   }
-  to_pass.price=localStorage.getItem("price")
-  to_pass.radius=localStorage.getItem("radius")
+
 
 
   $("#button").click(function(event){
