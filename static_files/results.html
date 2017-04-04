@@ -62,7 +62,7 @@
   to_pass.location=localStorage.getItem("location")
 
 
-  $("#button").click(function(event){
+  $("#get").click(function(event){
     $.post( "https://guarded-fortress-21120.herokuapp.com/request", to_pass, function(data) {
       $( "#first" ).text( data )
     })
