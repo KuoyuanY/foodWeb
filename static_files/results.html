@@ -60,6 +60,7 @@
 
 
   $("#get").click(function(event){
+    $("#firstName").text("Please wait while I search for a result.")
     $.get( "https://guarded-fortress-21120.herokuapp.com/request", to_pass, function(data) {
       if(data.total===0){
         $("#firstName").text("No results found")
@@ -73,9 +74,11 @@
       }
 
       })
-      $("#firstName").text("Please wait while I search for a result.")
     })
     $("#nextResult").click(function(event){
+      $("#firstName").text("Please wait while I search for a result.")
+      $("#firstPhone").text("loading...")
+      $("#firstWeb").text("Almost done...")
       $.get( "https://guarded-fortress-21120.herokuapp.com/request", to_pass, function(data) {
         if(data.total===0){
           $("#first").text("No results found")
@@ -89,9 +92,6 @@
           localStorage.setItem("number", order+1)
         }
         })
-        $("#firstName").text("Please wait while I search for a result.")
-        $("#firstPhone").text("loading...")
-        $("#firstWeb").text("Almost done...")
       })
 })
   </script>
