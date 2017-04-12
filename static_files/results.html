@@ -32,14 +32,17 @@
   <div class="buttons">
     <button class="pressBtn" type="button" id="get">Show Results!</button>
   </div>
-  <div>
+  <div align="center">
   <p id="firstName"></p>
   <p id="firstPhone"></p>
   <p id="firstWeb"></p>
   </div>
-  <div>
+  <div class="buttons" id="nextResult">
+    <button class="pressBtn" type="button">Show next Result!</button>
   </div>
   <script>
+  $(document).ready(function(){
+  $("#nextResult").hide()
   var to_pass = new Object()
 
   to_pass.price=localStorage.getItem("price")
@@ -63,11 +66,12 @@
       } else {
         $("#firstName").text(`Name: ${data.businesses[0].name}`)
         $("#firstPhone").text(`Phone: ${data.businesses[0].display_phone}`)
-        $("#firstWeb").text(`website: + ${data.businesses[0].url}`)
+        $("#firstWeb").text(`website: ${data.businesses[0].url}`)
+        $("#nextResult").show()
       }
 
       })
     })
-
+})
   </script>
 </html>
