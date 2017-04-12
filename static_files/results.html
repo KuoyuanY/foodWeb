@@ -33,8 +33,11 @@
     <button class="pressBtn" type="button" id="get">Show Results!</button>
   </div>
   <div>
-  <p id="first">a</p>
-
+  <p id="firstName"></p>
+  <p id="firstPhone"></p>
+  <p id="firstWeb"></p>
+  </div>
+  <div>
   </div>
   <script>
   var to_pass = new Object()
@@ -55,11 +58,12 @@
 
   $("#get").click(function(event){
     $.get( "https://guarded-fortress-21120.herokuapp.com/request", to_pass, function(data) {
-      console.log(data.total===1)
       if(data.total===0){
         $("#first").text("No results found")
       } else {
-        $("#first").text("Name: "+data.businesses[0].name + "\nPhone: " + data.businesses[0].phone + "\nwebsite: "+ data.businesses[0].url)
+        $("#firstName").text(`Name: ${data.businesses[0].name}`)
+        $("#firstPhone").text(`Phone: ${data.businesses[0].display_phone}`)
+        $("#firstWeb").text(`website: + ${data.businesses[0].url}`)
       }
 
       })
