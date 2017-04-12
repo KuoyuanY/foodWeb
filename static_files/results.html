@@ -68,10 +68,28 @@
         $("#firstPhone").text(`Phone: ${data.businesses[0].display_phone}`)
         $("#firstWeb").text(`website: ${data.businesses[0].url}`)
         $("#nextResult").show()
+        $("#get").hide()
+        localStorage.setItem("number", 1)
       }
 
       })
     })
+    $("#nextResult").click(function(event){
+      $.get( "https://guarded-fortress-21120.herokuapp.com/request", to_pass, function(data) {
+        if(data.total===0){
+          $("#first").text("No results found")
+        } else {
+          var order = localStorage.getItem("number")
+          $("#firstName").text(`Name: ${data.businesses[order].name}`)
+          $("#firstPhone").text(`Phone: ${data.businesses[order].display_phone}`)
+          $("#firstWeb").text(`website: ${data.businesses[order].url}`)
+          $("#nextResult").show()
+          $("#get").hide()
+          localStorage.setItem("number", order+1)
+        }
+
+        })
+      })
 })
   </script>
 </html>
