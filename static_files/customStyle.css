@@ -60,14 +60,14 @@ p {
   background-repeat: no-repeat;
 }
 .fixedImage .inner {
-  height: 2450px;
+  height: 2550px;
   display: table-cell;
   vertical-align: middle;
   width: 100%;
   max-width: none;
 }
 .content {
-  margin-top: 180px;
+  margin-top: 190px;
   margin-left: auto;
   text-align: center;
 }

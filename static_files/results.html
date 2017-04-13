@@ -26,7 +26,7 @@
   </style>
   </head>
   <h2 id="head">
-    Find Restaurant!
+    Please wait patiently while I find recommendations for you!
   </h2>
 
   <div class="buttons">
@@ -36,13 +36,17 @@
   <p id="firstName"></p>
   <p id="firstPhone"></p>
   <p id="firstWeb"></p>
+  <p id="firstRating"></p>
+  <div id="pic"></div>
   </div>
-  <div class="buttons" id="nextResult">
-    <button class="pressBtn" type="button">Show next Result!</button>
+  <div class="buttons">
+    <button class="pressBtn" type="button" id="nextResult">Show next restaurant!</button>
+    <button class="pressBtn" onclick="location.href='custom.html'" type="button" id="searchAgain">Search again!</button>
   </div>
   <script>
   $(document).ready(function(){
   $("#nextResult").hide()
+  $("#searchAgain").hide()
   var to_pass = new Object()
 
   to_pass.price=localStorage.getItem("price")
@@ -62,12 +66,17 @@
   $("#get").click(function(event){
     $.get( "https://guarded-fortress-21120.herokuapp.com/request", to_pass, function(data) {
       if(data.total===0){
-        $("#firstName").text("No results found")
+        $("#firstName").text("No results found, please search again")
+        $("#searchAgain").show()
       } else {
+
         $("#firstName").text(`Name: ${data.businesses[0].name}`)
         $("#firstPhone").text(`Phone: ${data.businesses[0].display_phone}`)
-        $("#firstWeb").text(`website: ${data.businesses[0].url}`)
+        $("#firstWeb").html(`website: <a target=\'_blank\' href=${data.businesses[0].url}><b> here</b></a>`)
+        $("#firstRating").text(`Yelp Rating: ${data.businesses[0].rating}`)
+        $("#pic").html(`<img src="${data.businesses[0].image_url}" style="width:304px;height:228px;">`)
         $("#nextResult").show()
+        $("#searchAgain").show()
         $("#get").hide()
         localStorage.setItem("number", 1)
       }
@@ -77,10 +86,18 @@
     $("#nextResult").click(function(event){
       $.get( "https://guarded-fortress-21120.herokuapp.com/request", to_pass, function(data) {
           var order = localStorage.getItem("number")
+          try{
+            console.log(data.businesses[order].name)
+          } catch(err){
+            alert("I have run out of recommendations for you! Please search again!")
+          }
           $("#firstName").text(`Name: ${data.businesses[order].name}`)
           $("#firstPhone").text(`Phone: ${data.businesses[order].display_phone}`)
-          $("#firstWeb").text(`website: ${data.businesses[order].url}`)
+          $("#firstWeb").html(`website: <a target=\'_blank\' href=${data.businesses[order].url}><b> here</b></a>`)
+          $("#firstRating").text(`Yelp Rating: ${data.businesses[order].rating}`)
+          $("#pic").html(`<img src="${data.businesses[order].image_url}" style="width:304px;height:228px;">`)
           $("#nextResult").show()
+          $("#searchAgain").show()
           $("#get").hide()
           localStorage.setItem("number", order+1)
         })
